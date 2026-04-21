@@ -1,0 +1,234 @@
+/*
+  OmegAmino Design System — Core Tokens
+  =====================================
+  Single source of truth for colors, type, spacing, and semantic styles.
+  All values mirror design-tokens/*.md and email-blocks/tokens.md.
+
+  Email compatibility note: every color is a pre-computed solid hex.
+  Do NOT introduce rgba() — Outlook renders it as black or transparent.
+*/
+
+:root {
+  /* ═══════════════════════════════════════════════════════════════
+     COLORS — Core Palette (dark-mode native)
+  ═══════════════════════════════════════════════════════════════ */
+
+  /* Surfaces */
+  --oa-bg-body:        #141C29;  /* Outer email body background */
+  --oa-bg-card:        #0F1A2E;  /* Elevated surface — cards, code boxes, link rows */
+  --oa-border-subtle:  #1E3550;  /* Card borders */
+  --oa-divider:        #1E2A38;  /* Hairline separators */
+
+  /* Accents */
+  --oa-accent-blue:    #1AACF0;  /* Primary accent — labels, borders, arrows, interactive */
+  --oa-accent-green:   #B3FF00;  /* Reserved for affiliate/discount codes ONLY */
+
+  /* Text */
+  --oa-text-primary:   #F4F6FA;  /* Headings, link titles, primary display text */
+  --oa-text-secondary: #8A9BB5;  /* Subtitles, social handles, captions, labels */
+  --oa-text-body:      #C7CAD0;  /* Body paragraph copy */
+
+  /* Fallbacks */
+  --oa-ig-fallback:    #C13584;  /* Outlook fallback for Instagram gradient */
+
+  /* Light mode — body sections on real campaigns are light, not dark.
+     Observed in the Moving Sale campaign (Apr 2026). */
+  --oa-bg-light:       #EFEFEF;  /* Light content panel background */
+  --oa-bg-light-alt:   #FFFFFF;  /* Alternating athlete card row */
+  --oa-fg-on-light:    #111111;  /* Primary text on light */
+  --oa-fg-on-light-2:  #333333;  /* Body text on light */
+  --oa-fg-on-light-3:  #6B6B6B;  /* Fine print on light */
+
+  /* Button tokens — pill CTA observed in campaigns */
+  --oa-btn-fill:       #B9E4EE;  /* Pale cyan pill */
+  --oa-btn-fg:         #0E2A33;  /* Near-black text on pill */
+  --oa-btn-radius:     999px;    /* Full pill */
+
+  /* Aliases — generic semantic names */
+  --oa-bg:   var(--oa-bg-body);
+  --oa-fg:   var(--oa-text-primary);
+  --oa-fg1:  var(--oa-text-primary);
+  --oa-fg2:  var(--oa-text-body);
+  --oa-fg3:  var(--oa-text-secondary);
+  --oa-accent: var(--oa-accent-blue);
+  --oa-hot:    var(--oa-accent-green);
+
+  /* ═══════════════════════════════════════════════════════════════
+     TYPOGRAPHY — Font Stacks
+  ═══════════════════════════════════════════════════════════════ */
+
+  --oa-font-display: 'Trebuchet MS', 'Noto Sans', Helvetica, Arial, sans-serif;
+  --oa-font-body:    Helvetica, 'Noto Sans', Arial, sans-serif;
+  --oa-font-mono:    'Courier New', 'Courier Prime', Courier, ui-monospace, monospace;
+
+  /* Type scale — role-based (mirrors design-tokens/typography.md) */
+  --oa-size-hero:         36px;
+  --oa-size-heading:      22px;
+  --oa-size-link-title:   16px;
+  --oa-size-code-display: 30px;
+  --oa-size-body:         15px;
+  --oa-size-link-sub:     14px;
+  --oa-size-social:       13px;
+  --oa-size-label:        11px;
+  --oa-size-mono-sm:      10px;
+
+  --oa-track-hero:       5px;
+  --oa-track-heading:    4px;
+  --oa-track-link-title: 2px;
+  --oa-track-code:       5px;
+  --oa-track-label:      2.5px;
+  --oa-track-mono-sm:    2px;
+
+  --oa-line-body: 1.6;
+
+  /* ═══════════════════════════════════════════════════════════════
+     SPACING & GEOMETRY
+  ═══════════════════════════════════════════════════════════════ */
+
+  --oa-side-margin:    28px;         /* fixed across every block */
+  --oa-section-pad:    24px 28px;    /* standard section padding */
+  --oa-section-pad-b:  12px 28px 20px; /* sub-header/body variant */
+  --oa-card-pad:       14px 18px;    /* link row card */
+  --oa-code-box-pad:   18px 20px;    /* code box */
+
+  --oa-gap-para:       16px;
+  --oa-gap-row:        10px;
+  --oa-gap-label:      6px;
+
+  --oa-radius-code:    8px;
+  --oa-radius-link:    0 6px 6px 0;
+  --oa-radius-icon:    6px;
+
+  --oa-border-link-accent: 3px solid var(--oa-accent-blue);
+  --oa-border-card:        1px solid var(--oa-border-subtle);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SEMANTIC ELEMENT STYLES
+   Use these when building prototypes / docs / web extensions.
+   Email HTML should inline all styles (see email-blocks/).
+═══════════════════════════════════════════════════════════════ */
+
+.oa-body {
+  background: var(--oa-bg-body);
+  color: var(--oa-text-body);
+  font-family: var(--oa-font-body);
+  font-size: var(--oa-size-body);
+  line-height: var(--oa-line-body);
+  margin: 0;
+}
+
+.oa-hero, h1.oa {
+  font-family: var(--oa-font-display);
+  font-size: var(--oa-size-hero);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: var(--oa-track-hero);
+  color: var(--oa-text-primary);
+  margin: 0;
+}
+
+.oa-heading, h2.oa {
+  font-family: var(--oa-font-display);
+  font-size: var(--oa-size-heading);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: var(--oa-track-heading);
+  color: var(--oa-text-primary);
+  margin: 0;
+}
+
+.oa-link-title, h3.oa {
+  font-family: var(--oa-font-display);
+  font-size: var(--oa-size-link-title);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: var(--oa-track-link-title);
+  color: var(--oa-text-primary);
+  margin: 0;
+}
+
+.oa-code-display {
+  font-family: var(--oa-font-display);
+  font-size: var(--oa-size-code-display);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: var(--oa-track-code);
+  color: var(--oa-accent-green);
+  margin: 0;
+}
+
+.oa-label, .oa-section-label {
+  font-family: var(--oa-font-mono);
+  font-size: var(--oa-size-label);
+  text-transform: uppercase;
+  letter-spacing: var(--oa-track-label);
+  color: var(--oa-accent-blue);
+  margin: 0;
+}
+
+.oa-mono-sm {
+  font-family: var(--oa-font-mono);
+  font-size: var(--oa-size-mono-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--oa-track-mono-sm);
+  color: var(--oa-text-secondary);
+  margin: 0;
+}
+
+.oa-social-handle {
+  font-family: var(--oa-font-mono);
+  font-size: var(--oa-size-social);
+  color: var(--oa-text-secondary);
+  margin: 0;
+}
+
+p.oa, .oa-body-copy {
+  font-family: var(--oa-font-body);
+  font-size: var(--oa-size-body);
+  line-height: var(--oa-line-body);
+  color: var(--oa-text-body);
+  margin: 0 0 var(--oa-gap-para) 0;
+}
+p.oa:last-child, .oa-body-copy:last-child { margin-bottom: 0; }
+
+.oa-link-sub {
+  font-family: var(--oa-font-body);
+  font-size: var(--oa-size-link-sub);
+  color: var(--oa-text-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COMPONENT PRIMITIVES
+═══════════════════════════════════════════════════════════════ */
+
+.oa-card {
+  background: var(--oa-bg-card);
+  border: var(--oa-border-card);
+  border-radius: var(--oa-radius-code);
+  padding: var(--oa-code-box-pad);
+}
+
+.oa-link-row {
+  background: var(--oa-bg-card);
+  border-left: var(--oa-border-link-accent);
+  border-radius: var(--oa-radius-link);
+  padding: var(--oa-card-pad);
+  text-decoration: none;
+  display: block;
+}
+
+.oa-divider {
+  height: 1px;
+  background: var(--oa-divider);
+  border: none;
+  margin: 0 var(--oa-side-margin);
+}
+
+.oa-arrow::after {
+  content: "→";
+  color: var(--oa-accent-blue);
+  font-family: var(--oa-font-display);
+  font-weight: bold;
+  padding-left: 12px;
+}
